@@ -1,0 +1,22 @@
+
+<div class="containerx">
+  <mat-card class="card">
+    <mat-card-header class="header">
+    </mat-card-header>
+    <mat-card-content class="content">
+      <form (submit)="login()">
+        <mat-form-field class="form-field">
+          <mat-label>Username:</mat-label>
+          <input matInput [(ngModel)]="username"  #InputUser name="usuario" required autofocus (input)="habilitarBtnIngresar()">
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label>Password:</mat-label>
+          <input matInput [(ngModel)]="password"  #InputPass name="contrasena" type="password" required  (input)="habilitarBtnIngresar()">
+        </mat-form-field>
+
+        <button class="button" mat-raised-button  type="submit" #btnIngresar disabled>Iniciar sesión</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

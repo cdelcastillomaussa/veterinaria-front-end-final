@@ -1,0 +1,135 @@
+
+.toolbar-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.header-toolbar {
+  padding: 0px 2px;
+  background: linear-gradient(to right, rgba(71, 115, 178, 255), rgba(105, 188, 187, 255));
+  position: fixed;
+  z-index: 2;
+}
+
+.icon {
+  padding-left: 5px;
+  color: #ffffff;
+  margin-right: 0.3em;
+}
+
+.icon-person {
+  margin-left: 84%;
+  color: #ffffff;
+}
+
+.user {
+  margin-top: 1%;
+  margin-left: 1%;
+  margin-right: 5%;
+  color: #ffffff;
+}
+
+.icon-exit {
+  margin-left: 4%;
+}
+
+.menu-logo {
+  margin: 100px 0px 0px 15px;
+  width: 300px;
+  object-fit: cover;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.content {
+  background-color: #ffffff;
+}
+
+.sidenav {
+  width: 325px;
+  background: linear-gradient(to bottom, rgba(71, 115, 178, 255), rgba(105, 188, 187, 255));
+}
+
+@media only screen and (max-width: 770px) {
+  h2.menu-app-name {
+      margin-right: 15px;
+      font-size: 15px;
+  }
+}
+
+@media only screen and (max-width:750px) {
+  .sidenav {
+      width: 100%;
+  }
+  .nav-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  h2.menu-app-name {
+      margin-right: 5px;
+      font-size: 11px;
+  }
+  .icon {
+      color: #ffffff;
+      font-size: 20px;
+  }
+}
+
+.nav {
+  background-color: transparent;
+  color: white;
+  border: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.boton1 {
+  background-color: transparent;
+  color: white;
+  border: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 120%;
+  margin-bottom: 0.1em;
+}
+
+.boton1:hover {
+  background-color: rgba(236, 108, 67, 255);
+  color: white;
+  font-size: 120%;
+}
+
+.lista {
+  margin-top: 0.5em;
+}
+
+.menuHijo {
+  padding: 10px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.menuHijo:hover {
+  background-color: rgba(236, 108, 67, 255);
+}
+.mat-nav-list a {
+  font-size: 18px;
+  text-decoration: none;
+  color: inherit;
+}
+
+

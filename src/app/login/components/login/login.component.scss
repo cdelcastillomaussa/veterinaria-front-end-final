@@ -1,0 +1,72 @@
+.mat-raised-button {
+  background-color: #2F80ED;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+.mat-raised-button:hover {
+  opacity: 0.80;
+}
+
+
+
+.containerx {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../../../../assets/Utils/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card {
+  width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  width: 605px;
+  height: 315px;
+  color: white;
+  background-image: url('../../../../assets/Utils/LogoSoftcaribbean.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content {
+  padding: 24px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.button {
+  margin-top: 16px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+//Mediaquery
+@media only screen and (max-width:750px) {
+  .container {
+    display: block;
+    padding-top: 160px;
+    padding-left: 10px;
+  }
+
+  .header {
+    width: 315px;
+    height: 150px;
+  }
+
+  .card {
+    width: 200px;
+  }
+
+}

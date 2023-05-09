@@ -1,0 +1,48 @@
+<div class="toolbar-container">
+  <mat-toolbar class="header-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon class="icon">menu</mat-icon>
+    </button>
+    <mat-icon class="icon-person">person</mat-icon>
+    <p class="user">admin</p>
+  </mat-toolbar>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #snav class="sidenav">
+      <mat-nav-list class="nav-list">
+        <div>
+          <img src="../../assets/Utils/LogoSoftcaribbean.png" class="menu-logo">
+        </div>
+        <div class="items__container">
+          <div class="header">
+            <div class="lista">
+              <nav class="nav">
+                <ul class="lista">
+                  <li class="menuHijo" (click)="snav.toggle()">
+                    <a class="btn" routerLink="/propietario">
+                      <mat-icon class="icon">person_add</mat-icon> Propietario
+                    </a>
+                  </li>
+                </ul>
+                <ul class="lista">
+                  <li class="menuHijo" (click)="snav.toggle()">
+                    <a class="btn" routerLink="/mascota">
+                      <mat-icon class="icon">pets</mat-icon> Mascota
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <br>
+
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+      <br><br><br>
+
+      <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
