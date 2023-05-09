@@ -8,11 +8,16 @@ import { LayoutComponent } from './layout/layout.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MaterialModule } from './material/material.module';
 import { NavbarModule } from './navbar/navbar.module';
+import { PropietarioComponent } from './components/propietario/propietario.component';
+import { MascotaComponent } from './components/mascota/mascota.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    PropietarioComponent,
+    MascotaComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +25,8 @@ import { NavbarModule } from './navbar/navbar.module';
     BrowserAnimationsModule,
     MaterialModule,
     LayoutModule,
-    NavbarModule
+    NavbarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
