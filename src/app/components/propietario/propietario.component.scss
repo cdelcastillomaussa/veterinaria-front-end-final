@@ -1,0 +1,74 @@
+.container {
+  margin-top: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .propietario {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+
+    mat-form-field {
+      margin-right: 10px;
+      width: 25vw;
+    }
+  }
+}
+
+.content-button {
+
+  display: flex;
+  justify-content: center;
+}
+
+.btn-button {
+  background-color: rgb(15, 114, 228);
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn1:hover {
+  opacity: 0.8;
+}
+
+
+#table {
+  border-radius: 1rem;
+  margin-top: 2%;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 2px 10px -6px black;
+
+  tbody {
+    border-radius: 1rem;
+
+    th {
+      background-color: rgba(243, 244, 246, 255);
+      border: none;
+      border-top: white;
+    }
+
+    td {
+      background-color: white;
+      border-color: white;
+    }
+
+  }
+
+
+}
+
+.mayus {
+  text-transform: uppercase;
+}
