@@ -1,1 +1,94 @@
-<p>propietario works!</p>
+<div class="container">
+  <form action="" [formGroup]="myForm" (ngSubmit)="guardar(myForm)">
+
+    <h1>Registro - Propietario</h1>
+
+    <div class="propietario">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo de Documento</mat-label>
+        <mat-select formControlName="tipo_doc">
+          <mat-option value="Cédula de ciudadanía">Cédula de ciudadanía</mat-option>
+          <mat-option value="Cédula de extranjería">Cédula de extranjería</mat-option>
+          <mat-option value="Pasaporte">Pasaporte</mat-option>
+          <mat-option value="Salvoconducto Permanencia de Refugiados">Salvoconducto Permanencia de
+            Refugiados</mat-option>
+          <mat-option value="Permiso Especial de Permanencia">Permiso Especial de Permanencia</mat-option>
+          <mat-option value="Permiso por Protección Temporal">Permiso por Protección Temporal</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>N&uacute;mero del Documento</mat-label>
+        <input matInput formControlName="documento">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre Completo</mat-label>
+        <input class="mayus" matInput formControlName="nombre_propietario">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Direccion</mat-label>
+        <input matInput formControlName="direccion">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Telefono</mat-label>
+        <input matInput formControlName="telefono">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Seleccione Ciudad</mat-label>
+        <mat-select formControlName="ciudad">
+          <mat-option *ngFor="let i of datosCiudad" [value]="i.nmid">
+            {{i.nombre_ciudad}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <div class="content-button">
+      <button type="submit" class="btn-button" (click)="refresh()">Guardar</button>
+    </div>
+
+  </form>
+
+  <table id="table" class="table table-bordered hover table-borderless">
+    <thead>
+      <tr>
+        <th style="text-align:center">#</th>
+        <th style="text-align:center">Tipo de Documento</th>
+        <th style="text-align:center">Documento</th>
+        <th style="text-align:center">Nombre Completo</th>
+        <th style="text-align:center">Direccion</th>
+        <th style="text-align:center">Telefono</th>
+        <th style="text-align:center">Ciudad</th>
+        <th style="text-align:center">Acciones</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr style="text-align:center;" *ngFor="let item of  datosPropietario">
+        <td style="text-align:center;">{{item.nmid}}</td>
+        <td style="text-align:center;">{{item.tipo_doc}}</td>
+        <td style="text-align:center;">{{item.documento}}</td>
+        <td style="text-align:center;">{{item.nombre_propietario}}</td>
+        <td style="text-align:center;">{{item.direccion}}</td>
+        <td style="text-align:center;">{{item.telefono}}</td>
+        <td style="text-align:center;">{{item.nombre_ciudad}}</td>
+        <td style="text-align:center;">
+          <button class="edit" mat-icon-button color="primary" (click)="editar(item)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button class="edit" mat-icon-button color="warn" (click)="eliminara(item.nmid)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
