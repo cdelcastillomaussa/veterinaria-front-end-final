@@ -4,6 +4,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/components/navbar/navbar.component';
 import { PropietarioComponent } from './components/propietario/propietario.component';
+import { MascotaComponent } from './components/mascota/mascota.component';
 
 const routes: Routes = [
 
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'propietario',
         component: PropietarioComponent
+      },
+      {
+        path: 'mascota',
+        component: MascotaComponent
       }
 
     ]
