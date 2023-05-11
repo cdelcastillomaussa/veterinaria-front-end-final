@@ -1,1 +1,96 @@
-<p>mascota works!</p>
+<div class="container">
+  <form [formGroup]="myForm" (ngSubmit)="guardar(myForm)">
+
+    <h1>Registro - Mascota</h1>
+
+    <div class="mascota">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre de Mascota</mat-label>
+        <input class="mayus" matInput formControlName="nombre_mascota">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Seleccione Especie</mat-label>
+        <mat-select formControlName="especie">
+          <mat-option *ngFor="let i of datosEspecie" [value]="i.nmid">
+            {{i.nombre_especie}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Raza</mat-label>
+        <input class="mayus" matInput formControlName="raza">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha Nacimiento Mascota</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="f_naci">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Seleccione Propietario</mat-label>
+        <mat-select class="mayus" formControlName="propietario">
+          <mat-option *ngFor="let j of datosPropietario" [value]="j.nmid">
+            {{j.nombre_propietario}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha Registro</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="f_reg">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+    </div>
+
+    <div class="content-button">
+      <button type="submit" class="btn-button" (click)="refresh()">Guardar</button>
+    </div>
+
+  </form>
+
+  <table id="table" class="table table-bordered hover table-borderless">
+    <thead>
+      <tr>
+        <th style="text-align:center">#</th>
+        <th style="text-align:center">Nombre Mascota</th>
+        <th style="text-align:center">Nombre Especie</th>
+        <th style="text-align:center">Raza Mascota</th>
+        <th style="text-align:center">Fecha Nacimiento Mascota</th>
+        <th style="text-align:center">Nombre Propietario</th>
+        <th style="text-align:center">Fecha Registro</th>
+        <th style="text-align:center">Acciones</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr style="text-align:center;" *ngFor="let item of  datosMascota">
+        <td style="text-align:center;">{{item.nmid}}</td>
+        <td style="text-align:center;">{{item.nombre_mascota}}</td>
+        <td style="text-align:center;">{{item.nombre_especie}}</td>
+        <td style="text-align:center;">{{item.raza}}</td>
+        <td style="text-align:center;">{{item.f_naci}}</td>
+        <td style="text-align:center;">{{item.nombre_propietario}}</td>
+        <td style="text-align:center;">{{item.f_reg}}</td>
+        <td style="text-align:center;">
+          <button class="edit" mat-icon-button color="primary" (click)="editar(item)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button class="edit" mat-icon-button color="warn" (click)="eliminara(item.nmid)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
