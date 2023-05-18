@@ -106,14 +106,18 @@ export class MascotaComponent implements OnInit {
 
   //editar datos y enviar a los campos correspondientes de C/U
   editar(datos: any) {
+    const f_naci = new Date(datos.f_naci);
+    f_naci.setDate(f_naci.getDate() + 1);
+    const f_reg = new Date(datos.f_reg);
+    f_reg.setDate(f_reg.getDate() + 1);
     this.myForm.setValue({
       nmid: datos.nmid,
       nombre_mascota: datos.nombre_mascota,
       especie: datos.nmid_especie,
       raza: datos.raza,
-      f_naci: datos.f_naci,
+      f_naci: f_naci,
       propietario: datos.nmid_propietario,
-      f_reg: datos.f_reg
+      f_reg: f_reg
     });
 
   }
