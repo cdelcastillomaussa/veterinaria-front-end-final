@@ -41,33 +41,14 @@
   opacity: 0.8;
 }
 
-
-#table {
-  border-radius: 1rem;
-  margin-top: 2%;
-  width: 100%;
-  background-color: white;
-  box-shadow: 0px 2px 10px -6px black;
-
-  tbody {
-    border-radius: 1rem;
-
-    th {
-      background-color: rgba(243, 244, 246, 255);
-      border: none;
-      border-top: white;
-    }
-
-    td {
-      background-color: white;
-      border-color: white;
-    }
-
-  }
-
-
+// clases para separar las columnas mat-table
+.custom-table {
+  border-collapse: separate;
+  border-spacing: 8px; /* Ajusta el valor según el espacio deseado entre columnas */
 }
 
-.mayus {
-  text-transform: uppercase;
+.mat-cell,
+.mat-header-cell {
+  padding: 8px; /* Ajusta el valor según el espacio deseado alrededor del contenido de las celdas */
+  text-align: left; /* Ajusta la alineación del contenido de las celdas */
 }

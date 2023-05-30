@@ -16,6 +16,9 @@ export class PropietarioComponent implements OnInit {
   datosPropietario: Array<Propietario> = [];
   datosCiudad: any;
 
+  displayedColumns: string[] = ['nmid', 'tipo_doc', 'documento', 'nombre_propietario', 'direccion', 'telefono', 'nombre_ciudad', 'acciones'];
+
+
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router, private servicepropietario: PropietarioService, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -27,14 +30,12 @@ export class PropietarioComponent implements OnInit {
       direccion: [''],
       telefono: [''],
       ciudad: []
-    })
+    });
 
     //Listar propietarios
     let arrayPropietario: Array<Propietario> = [];
     this.servicepropietario.getPropietarios().subscribe(datos => {
       this.datosPropietario = datos.dato;
-      console.log(datos);
-      console.log(datos.nombre_ciudad);
     });
 
     //Listar ciudades
