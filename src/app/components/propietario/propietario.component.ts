@@ -14,6 +14,7 @@ import { PropietarioService } from 'src/app/services/propietario.service';
 export class PropietarioComponent implements OnInit {
   myForm!: FormGroup;
   datosPropietario: Array<Propietario> = [];
+  filterPost = '';
   datosCiudad: any;
 
   displayedColumns: string[] = ['nmid', 'tipo_doc', 'documento', 'nombre_propietario', 'direccion', 'telefono', 'nombre_ciudad', 'acciones'];

@@ -1,4 +1,6 @@
-<div class="container">
+<!-- START DIALOG O MODAL -->
+
+<ng-template #content>
   <form [formGroup]="myForm" (ngSubmit)="guardar(myForm)">
 
     <h1>Registro - Propietario</h1>
@@ -54,7 +56,20 @@
     </div>
 
   </form>
+</ng-template>
+<!--END DIALOG O MODAL-->
 
+
+
+<!-- START VIEW PRINCIPAL -->
+<h3>Propietario</h3>
+  <input id="filter" type="text" #myInput placeholder='Buscar...' [(ngModel)]="filterPost" name="filterPosts">
+  
+  <button mat-raised-button color="primary">
+    Nuevo<mat-icon class="material-icons icon-add">add_circle</mat-icon>
+  </button>
+<div class="container">
+    
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="datosPropietario" class="custom-table">
 
@@ -113,45 +128,10 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+      aria-label="Select page of periodic elements">
     </mat-paginator>
   </div>
 
-
-  <!--<table id="table" class="table table-bordered hover table-borderless">
-    <thead>
-      <tr>
-        <th style="text-align:center">#</th>
-        <th style="text-align:center">Tipo de Documento</th>
-        <th style="text-align:center">Documento</th>
-        <th style="text-align:center">Nombre Completo</th>
-        <th style="text-align:center">Direccion</th>
-        <th style="text-align:center">Telefono</th>
-        <th style="text-align:center">Ciudad</th>
-        <th style="text-align:center">Acciones</th>
-      </tr>
-
-    </thead>
-    <tbody>
-      <tr style="text-align:center;" *ngFor="let item of  datosPropietario">
-        <td style="text-align:center;">{{item.nmid}}</td>
-        <td style="text-align:center;">{{item.tipo_doc}}</td>
-        <td style="text-align:center;">{{item.documento}}</td>
-        <td style="text-align:center;">{{item.nombre_propietario}}</td>
-        <td style="text-align:center;">{{item.direccion}}</td>
-        <td style="text-align:center;">{{item.telefono}}</td>
-        <td style="text-align:center;">{{item.nombre_ciudad}}</td>
-        <td style="text-align:center;">
-          <button class="edit" mat-icon-button color="primary" (click)="editar(item)">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button class="edit" mat-icon-button color="warn" (click)="eliminara(item.nmid)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
-
-
 </div>
+<!-- END VIEW PRINCIPAL -->

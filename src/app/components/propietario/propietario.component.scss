@@ -1,3 +1,40 @@
+.mat-raised-button.mat-primary {
+  top: 15px;
+  left: 55em;
+  background-color: #1877f2;
+}
+
+.mat-raised-button:hover {
+  opacity: 0.8;
+}
+
+input[type="text"] {
+  position: relative;
+  top: 15px;
+  left: 99px;
+  margin-left: 5%;
+  background-color: white;
+  border: solid;
+  border-width: thin;
+  border-color: rgb(71, 115, 178);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  text-decoration: none;
+  outline: none;
+  width: 18%;
+  font-size: 14px;
+  height: 3em;
+}
+
+h3 {
+  position: relative;
+  text-align: center;
+  font-size: 32px;
+  left: 10px;
+  top: 10px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -44,11 +81,14 @@
 // clases para separar las columnas mat-table
 .custom-table {
   border-collapse: separate;
-  border-spacing: 8px; /* Ajusta el valor según el espacio deseado entre columnas */
+  border-spacing: 8px;
+  /* Ajusta el valor según el espacio deseado entre columnas */
 }
 
 .mat-cell,
 .mat-header-cell {
-  padding: 8px; /* Ajusta el valor según el espacio deseado alrededor del contenido de las celdas */
-  text-align: left; /* Ajusta la alineación del contenido de las celdas */
+  padding: 8px;
+  /* Ajusta el valor según el espacio deseado alrededor del contenido de las celdas */
+  text-align: left;
+  /* Ajusta la alineación del contenido de las celdas */
 }
