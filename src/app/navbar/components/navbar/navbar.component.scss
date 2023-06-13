@@ -57,12 +57,12 @@
   background: linear-gradient(to bottom, rgba(71, 115, 178, 255), rgba(105, 188, 187, 255));
 }
 
-@media only screen and (max-width: 770px) {
-  h2.menu-app-name {
-      margin-right: 15px;
-      font-size: 15px;
-  }
-}
+// @media only screen and (max-width: 770px) {
+//   h2.menu-app-name {
+//       margin-right: 15px;
+//       font-size: 15px;
+//   }
+// }
 
 @media only screen and (max-width:750px) {
   .sidenav {
@@ -74,16 +74,33 @@
     flex-direction: column;
     align-items: center;
   }
-}
+} 
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 400px) {
   h2.menu-app-name {
       margin-right: 5px;
       font-size: 11px;
   }
+
+  .icon-person{
+    margin-left: 83%;
+  }
   .icon {
       color: #ffffff;
       font-size: 20px;
+  }
+  
+}
+
+@media only screen and (min-width: 450px) and (max-width: 720px) {
+  .icon-person{
+    margin-left: 89%;
+  }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 320px) {
+  .icon-person{
+    margin-left:77%;
   }
 }
 
