@@ -49,9 +49,14 @@
         </mat-select>
       </mat-form-field>
 
-      <div class="content-button">
+      <!-- <div class="content-button">
         <button type="submit" class="btn-button" (click)="refresh()">Guardar</button>
-      </div>
+      </div> -->
+
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+      </mat-dialog-actions>
 
     </div>
 
@@ -63,13 +68,15 @@
 
 <!-- START VIEW PRINCIPAL -->
 <h3>Propietario</h3>
+<div class="content-button">
   <input id="filter" type="text" #myInput placeholder='Buscar...' [(ngModel)]="filterPost" name="filterPosts">
-  
-  <button mat-raised-button color="primary">
+
+  <button mat-raised-button color="primary" (click)="open(content)">
     Nuevo<mat-icon class="material-icons icon-add">add_circle</mat-icon>
   </button>
+</div>
+
 <div class="container">
-    
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="datosPropietario" class="custom-table">
 

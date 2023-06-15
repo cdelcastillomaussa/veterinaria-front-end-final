@@ -1,6 +1,5 @@
 .mat-raised-button.mat-primary {
-  top: 15px;
-  left: 55em;
+  margin-right: 1.5em;
   background-color: #1877f2;
 }
 
@@ -9,10 +8,7 @@
 }
 
 input[type="text"] {
-  position: relative;
-  top: 15px;
-  left: 99px;
-  margin-left: 5%;
+  margin-left: 1.5em;
   background-color: white;
   border: solid;
   border-width: thin;
@@ -22,17 +18,15 @@ input[type="text"] {
   border-right: none;
   text-decoration: none;
   outline: none;
-  width: 18%;
+  width: 15%;
   font-size: 14px;
-  height: 3em;
+  height: 30px;
 }
 
 h3 {
-  position: relative;
+  margin-top: 1%;
   text-align: center;
   font-size: 32px;
-  left: 10px;
-  top: 10px;
 }
 
 .container {
@@ -46,19 +40,20 @@ h3 {
     font-size: 30px;
     text-align: center;
   }
+}
 
-  .propietario {
-    display: flex;
-    flex-direction: column;
+.propietario {
+  display: flex;
+  flex-direction: column;
 
-    mat-form-field {
-      width: 25vw;
-    }
+  mat-form-field {
+    width: 25vw;
   }
 }
 
 .content-button {
   display: flex;
+  justify-content: space-between;
 }
 
 .btn-button {
@@ -78,11 +73,16 @@ h3 {
   opacity: 0.8;
 }
 
+
 // clases para separar las columnas mat-table
 .custom-table {
+  width: 100%;
   border-collapse: separate;
-  border-spacing: 8px;
+  border-spacing: 5px;
   /* Ajusta el valor según el espacio deseado entre columnas */
+}
+.mat-elevation-z8{
+  width: 100%;
 }
 
 .mat-cell,
@@ -91,4 +91,9 @@ h3 {
   /* Ajusta el valor según el espacio deseado alrededor del contenido de las celdas */
   text-align: left;
   /* Ajusta la alineación del contenido de las celdas */
+}
+
+.mat-paginator {
+  width: 100%;
+  background-color: #fff;
 }

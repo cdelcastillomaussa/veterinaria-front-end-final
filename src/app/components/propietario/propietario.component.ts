@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ciudad } from 'src/app/interfaces/ciudad';
 import { Propietario } from 'src/app/interfaces/propietario';
@@ -20,7 +21,9 @@ export class PropietarioComponent implements OnInit {
   displayedColumns: string[] = ['nmid', 'tipo_doc', 'documento', 'nombre_propietario', 'direccion', 'telefono', 'nombre_ciudad', 'acciones'];
 
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router, private servicepropietario: PropietarioService, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private fb: FormBuilder, private matModal: MatDialog, private router: Router, private servicepropietario: PropietarioService, private http: HttpClient) { 
+    
+  }
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -44,6 +47,13 @@ export class PropietarioComponent implements OnInit {
     this.servicepropietario.getCiudades().subscribe(datos => {
       this.datosCiudad = datos.dato;
     });
+  }
+
+  //Abrir MatDialog -Modal
+  open(content: any) {
+    this.matModal.open(content);
+    this.myForm.reset();
+
   }
 
   //Recargar datos a la tabla
