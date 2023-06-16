@@ -2,7 +2,7 @@
 
 <ng-template #content>
   <form [formGroup]="myForm" (ngSubmit)="guardar(myForm)">
-    
+
     <h1 mat-dialog-title>Propietario</h1>
 
     <div class="propietario">
@@ -70,7 +70,7 @@
 <h3>Propietario</h3>
 
 <div class="content-button-search-new">
-  <input id="filter" type="text"  placeholder='Buscar...' [(ngModel)]="filterPost" name="filterPosts">
+  <input id="filter" type="text" placeholder='Buscar...' [(ngModel)]="filterPost" name="filterPosts">
   <button mat-raised-button color="primary" (click)="open(content)">
     Nuevo<mat-icon class="material-icons icon-add">add_circle</mat-icon>
   </button>
