@@ -2,11 +2,10 @@
 
 <ng-template #content>
   <form [formGroup]="myForm" (ngSubmit)="guardar(myForm)">
-
-    <h1>Registro - Propietario</h1>
+    
+    <h1 mat-dialog-title>Propietario</h1>
 
     <div class="propietario">
-
       <mat-form-field appearance="outline">
         <mat-label>Tipo de Documento</mat-label>
         <mat-select formControlName="tipo_doc">
@@ -20,7 +19,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" cdkFocusInitial>
         <mat-label>N&uacute;mero del Documento</mat-label>
         <input matInput formControlName="documento">
       </mat-form-field>
@@ -49,13 +48,14 @@
         </mat-select>
       </mat-form-field>
 
-      <!-- <div class="content-button">
-        <button type="submit" class="btn-button" (click)="refresh()">Guardar</button>
-      </div> -->
-
-      <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+      <mat-dialog-actions class="footer-dialog">
+        <button [disabled]="myForm.invalid" title="Guardar y agregar" type="submit" class="save" (click)="refresh()">
+          <mat-icon class="icon-button">save add</mat-icon>
+        </button>
+        <button [disabled]="myForm.invalid" class="save-exit" title="Guardar y salir">
+          <mat-icon class="icon-button">save subdirectory_arrow_right</mat-icon>
+        </button>
+        <button mat-dialog-close class="close">Cancelar</button>
       </mat-dialog-actions>
 
     </div>
@@ -68,9 +68,9 @@
 
 <!-- START VIEW PRINCIPAL -->
 <h3>Propietario</h3>
-<div class="content-button">
-  <input id="filter" type="text" #myInput placeholder='Buscar...' [(ngModel)]="filterPost" name="filterPosts">
 
+<div class="content-button-search-new">
+  <input id="filter" type="text"  placeholder='Buscar...' [(ngModel)]="filterPost" name="filterPosts">
   <button mat-raised-button color="primary" (click)="open(content)">
     Nuevo<mat-icon class="material-icons icon-add">add_circle</mat-icon>
   </button>
