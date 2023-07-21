@@ -1,7 +1,9 @@
-<div class="container">
+<!-- START DIALOG O MODAL -->
+
+<ng-template #content>
   <form [formGroup]="myForm" (ngSubmit)="guardar(myForm)">
 
-    <h1>Registro - Mascota</h1>
+    <h1 mat-dialog-title>Mascota</h1>
 
     <div class="mascota">
 
@@ -55,44 +57,86 @@
 
     </div>
 
-
-
   </form>
+</ng-template>
+<!--END DIALOG O MODAL-->
 
-  <table id="table" class="table table-bordered hover table-borderless">
-    <thead>
-      <tr>
-        <th style="text-align:center">#</th>
-        <th style="text-align:center">Nombre Mascota</th>
-        <th style="text-align:center">Nombre Especie</th>
-        <th style="text-align:center">Raza Mascota</th>
-        <th style="text-align:center">Fecha Nacimiento Mascota</th>
-        <th style="text-align:center">Nombre Propietario</th>
-        <th style="text-align:center">Fecha Registro</th>
-        <th style="text-align:center">Acciones</th>
-      </tr>
 
-    </thead>
-    <tbody>
-      <tr style="text-align:center;" *ngFor="let item of  datosMascota">
-        <td style="text-align:center;">{{item.nmid}}</td>
-        <td style="text-align:center;">{{item.nombre_mascota}}</td>
-        <td style="text-align:center;">{{item.nombre_especie}}</td>
-        <td style="text-align:center;">{{item.raza}}</td>
-        <td style="text-align:center;">{{item.f_naci}}</td>
-        <td style="text-align:center;">{{item.nombre_propietario}}</td>
-        <td style="text-align:center;">{{item.f_reg}}</td>
-        <td style="text-align:center;">
-          <button class="edit" mat-icon-button color="primary" (click)="editar(item)">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button class="edit" mat-icon-button color="warn" (click)="eliminara(item.nmid)">
-            <mat-icon>delete</mat-icon>
-          </button>
+
+<!-- START VIEW PRINCIPAL -->
+<h3>Mascota</h3>
+
+<div class="content-button-search-new">
+  <input id="filter" type="text" placeholder='Buscar...' [(ngModel)]="filterPost" name="filterPosts">
+  <button mat-raised-button color="primary" (click)="open(content)">
+    Nuevo<mat-icon class="material-icons icon-add">add_circle</mat-icon>
+  </button>
+</div>
+
+<div class="container">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="datosMascota" class="custom-table">
+
+      <!--Id Column-->
+      <ng-container matColumnDef="nmid">
+        <th mat-header-cell *matHeaderCellDef> # </th>
+        <td mat-cell *matCellDef="let element"> {{element.nmid}} </td>
+      </ng-container>
+
+      <!-- Nombre Mascota Column -->
+      <ng-container matColumnDef="nombre_mascota">
+        <th mat-header-cell *matHeaderCellDef>Nombre Mascota</th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre_propietario}} </td>
+      </ng-container>
+
+      <!-- Nombre Especie Column -->
+      <ng-container matColumnDef="nombre_especie">
+        <th mat-header-cell *matHeaderCellDef>Nombre Especie</th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre_especie}} </td>
+      </ng-container>
+
+      <!-- Raza Mascota Column -->
+      <ng-container matColumnDef="raza">
+        <th mat-header-cell *matHeaderCellDef>Raza Mascota</th>
+        <td mat-cell *matCellDef="let element"> {{element.raza}} </td>
+      </ng-container>
+
+      <!-- Fecha Nacimiento Mascota Column -->
+      <ng-container matColumnDef="f_naci">
+        <th mat-header-cell *matHeaderCellDef>Fecha Nacimiento Mascota</th>
+        <td mat-cell *matCellDef="let element"> {{element.f_naci}} </td>
+      </ng-container>
+
+      <!-- Nombre Propietario Column -->
+      <ng-container matColumnDef="nombre_propietario">
+        <th mat-header-cell *matHeaderCellDef>Nombre Propietario</th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre_propietario}} </td>
+      </ng-container>
+
+      <!-- Fecha Registro Column -->
+      <ng-container matColumnDef="f_reg">
+        <th mat-header-cell *matHeaderCellDef>Fecha Registro</th>
+        <td mat-cell *matCellDef="let element"> {{element.f_reg}} </td>
+      </ng-container>
+
+
+      <!-- Acciones Column -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="editar(element)"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="eliminara(element.nmid)"><mat-icon>delete</mat-icon></button>
         </td>
-      </tr>
-    </tbody>
-  </table>
+      </ng-container>
 
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
 
 </div>
+<!-- END VIEW PRINCIPAL -->

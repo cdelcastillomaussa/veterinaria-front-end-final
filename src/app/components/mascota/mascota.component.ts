@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { Especie } from 'src/app/interfaces/especie';
 import { Mascota } from 'src/app/interfaces/mascota';
@@ -16,10 +17,13 @@ import { PropietarioService } from 'src/app/services/propietario.service';
 export class MascotaComponent implements OnInit {
   myForm!: FormGroup;
   datosMascota: Array<Mascota> = [];
+  filterPost = '';
   datosEspecie: any;
   datosPropietario: any;
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router, private serviceMascota: MascotaService, private servicepropietario: PropietarioService, private http: HttpClient) { }
+  displayedColumns: string[] = ['nmid', 'nombre_mascota', 'nombre_especie', 'raza', 'f_naci', 'nombre_propietario', 'f_reg', 'acciones'];
+
+  constructor(private route: ActivatedRoute, private fb: FormBuilder, private matModal: MatDialog, private router: Router, private serviceMascota: MascotaService, private servicepropietario: PropietarioService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -51,6 +55,13 @@ export class MascotaComponent implements OnInit {
       this.datosPropietario = datos.dato;
       console.log(datos);
     });
+  }
+
+  //Abrir MatDialog -Modal
+  open(content: any) {
+    this.matModal.open(content);
+    this.myForm.reset();
+
   }
 
   //Recargar datos a la tabla mascota
