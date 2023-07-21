@@ -132,6 +132,9 @@ h1 {
   text-align: left;
   /* Ajusta la alineación del contenido de las celdas */
 }
+.mat-header-cell{
+  font-weight: bold !important;
+}
 
 .mat-paginator {
   width: 100%;

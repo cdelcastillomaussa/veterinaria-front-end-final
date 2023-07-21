@@ -132,6 +132,11 @@ export class MascotaComponent implements OnInit {
     });
 
   }
+  
+  //abrir modal cuando le demos clic al btn editar
+  openEdit(content: any) {
+    this.matModal.open(content);
+  }
 
   //Metodo eliminar mascota
   eliminara(item: any) {

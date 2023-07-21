@@ -2,11 +2,10 @@
 
 <ng-template #content>
   <form [formGroup]="myForm" (ngSubmit)="guardar(myForm)">
-
+    
     <h1 mat-dialog-title>Mascota</h1>
 
-    <div class="mascota">
-
+    <mat-dialog-content class="mascota">
       <mat-form-field appearance="outline">
         <mat-label>Nombre de Mascota</mat-label>
         <input class="mayus" matInput formControlName="nombre_mascota">
@@ -50,12 +49,17 @@
         <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
+    </mat-dialog-content>
 
-      <div class="content-button">
-        <button type="submit" class="btn-button" (click)="refresh()">Guardar</button>
-      </div>
-
-    </div>
+    <mat-dialog-actions class="footer-dialog">
+      <button [disabled]="myForm.invalid" title="Guardar y agregar" type="submit" class="save" (click)="refresh()">
+        <mat-icon class="icon-button">save add</mat-icon>
+      </button>
+      <button [disabled]="myForm.invalid" class="save-exit" title="Guardar y salir">
+        <mat-icon class="icon-button">save subdirectory_arrow_right</mat-icon>
+      </button>
+      <button mat-dialog-close class="close">Cancelar</button>
+    </mat-dialog-actions>
 
   </form>
 </ng-template>
@@ -85,46 +89,47 @@
 
       <!-- Nombre Mascota Column -->
       <ng-container matColumnDef="nombre_mascota">
-        <th mat-header-cell *matHeaderCellDef>Nombre Mascota</th>
+        <th mat-header-cell *matHeaderCellDef>NOMBRE MASCOTA</th>
         <td mat-cell *matCellDef="let element"> {{element.nombre_propietario}} </td>
       </ng-container>
 
       <!-- Nombre Especie Column -->
       <ng-container matColumnDef="nombre_especie">
-        <th mat-header-cell *matHeaderCellDef>Nombre Especie</th>
+        <th mat-header-cell *matHeaderCellDef>NOMBRE ESPECIE</th>
         <td mat-cell *matCellDef="let element"> {{element.nombre_especie}} </td>
       </ng-container>
 
       <!-- Raza Mascota Column -->
       <ng-container matColumnDef="raza">
-        <th mat-header-cell *matHeaderCellDef>Raza Mascota</th>
+        <th mat-header-cell *matHeaderCellDef>RAZA MASCOTA</th>
         <td mat-cell *matCellDef="let element"> {{element.raza}} </td>
       </ng-container>
 
       <!-- Fecha Nacimiento Mascota Column -->
       <ng-container matColumnDef="f_naci">
-        <th mat-header-cell *matHeaderCellDef>Fecha Nacimiento Mascota</th>
+        <th mat-header-cell *matHeaderCellDef>FECHA NACIMIENTO MASCOTA</th>
         <td mat-cell *matCellDef="let element"> {{element.f_naci}} </td>
       </ng-container>
 
       <!-- Nombre Propietario Column -->
       <ng-container matColumnDef="nombre_propietario">
-        <th mat-header-cell *matHeaderCellDef>Nombre Propietario</th>
+        <th mat-header-cell *matHeaderCellDef>NOMBRE PROPIETARIO</th>
         <td mat-cell *matCellDef="let element"> {{element.nombre_propietario}} </td>
       </ng-container>
 
       <!-- Fecha Registro Column -->
       <ng-container matColumnDef="f_reg">
-        <th mat-header-cell *matHeaderCellDef>Fecha Registro</th>
+        <th mat-header-cell *matHeaderCellDef>FECHA REGISTRO</th>
         <td mat-cell *matCellDef="let element"> {{element.f_reg}} </td>
       </ng-container>
 
 
       <!-- Acciones Column -->
       <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <th mat-header-cell *matHeaderCellDef>ACCIONES</th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button color="primary" (click)="editar(element)"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button color="primary" (click)="openEdit(content)"
+            (click)="editar(element)"><mat-icon>edit</mat-icon></button>
           <button mat-icon-button color="warn" (click)="eliminara(element.nmid)"><mat-icon>delete</mat-icon></button>
         </td>
       </ng-container>

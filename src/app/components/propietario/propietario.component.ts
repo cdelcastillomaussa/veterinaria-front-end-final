@@ -109,6 +109,11 @@ export class PropietarioComponent implements OnInit {
 
   }
 
+  //abrir modal cuando le demos clic al btn editar
+  openEdit(content: any) {
+    this.matModal.open(content);
+  }
+
   //Metodo eliminar propietario
   eliminara(item: any) {
     if (confirm('¿Esta seguro de eliminar este registro?')) {
